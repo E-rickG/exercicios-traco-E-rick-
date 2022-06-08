@@ -1,0 +1,53 @@
+<html>
+    <body style="background-color: #1c1c1c ;">
+        <center>
+            <p id="cabecalho"> 
+                    <font color="#ffffff;">
+                        <h1>
+                            Números multiplos!
+                        </h1>
+                    </font>
+            </p>
+        </center>
+        <p id="explicacao">
+            <center>
+                <font color="#fffff;">
+                    Fazer um programa para ler dois números inteiros, e dizer se um número é
+                    múltiplo do outro. Os números podem ser digitados em qualquer ordem.
+                </font>
+            </center>
+        </p>
+        <p id="acoes">
+            <center>
+                <font color="#fffff;">
+                    Digite dois números inteiros:<br><br>
+                    <input type="number" value="0" id="N1" name="Numero1">
+                    <input type="number" value="0" id="N2" name="Numero2"><br><br>
+                    <input type="button" value="CALCULAR" onclick="multiplo();">
+                </font>
+            </center>
+        </p>
+        <center>
+            <font color="#fffff;">
+                <p id="gabarito"></p>
+            </font>
+        </center>
+    </body>
+    <script>
+        function multiplo(){
+            var tN1 = document.getElementById('N1').value;
+            var tN2 = document.getElementById('N2').value;
+            saida = "";
+            if(((tN1%tN2)==0)||((tN2%tN1)==0)){
+                saida = "São múltiplos.";
+            } else{
+                saida = "Não são múltipos."
+            }
+            document.getElementById("gabarito").innerHTML = saida
+        }
+        document.querySelector('#N2').addEventListener('keydown', function (event) {
+        if (event.keyCode !== 13) return;
+        multiplo();
+    })
+    </script>
+</html>

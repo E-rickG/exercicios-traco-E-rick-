@@ -1,0 +1,63 @@
+<html>
+    <body style="background-color: #1c1c1c ;">
+        <p id="cacecalho">
+            <center>
+                <font color="#ffffff;">
+                    <h1>
+                        Aprovado ou reprovado
+                    </h1>
+                </font>
+            </center>
+        </p>
+        <p id="explicacao">
+            <center>
+                <font color="#fffff;">
+                    Fazer um programa para ler as duas notas que um aluno obteve no
+                    primeiro e segundo semestres de uma disciplina anual. Em seguida,
+                    mostrar a nota final que o aluno obteve (com uma casa decimal) no ano
+                    juntamente com um texto explicativo. Caso a nota final do aluno seja
+                    inferior a 60.00, mostrar a mensagem "REPROVADO".
+                </font>
+            </center>
+        </p>
+        <p id="acoes">
+            <center>
+                <font color="#fffff;">
+                    <center>
+                        Digite a primeira nota: <input type="text" value="0.0" id="Not1" name="Nota1"><br><br>
+                        Digite a segunda nota: <input type="text" value="0.0" id="Not2" name="Nota2"><br><br>
+                        <input type="button" value="CALCULAR" onclick="resultado();"><br>
+                    </center>
+                </font>
+            </center>
+        </p>
+        <center>
+            <font color="#fffff;">
+                <p id="resul"></p>
+                <p id="gabarito"></p>
+            </font>
+        </center>
+    </body>
+    <script>
+        function resultado(){
+            var tNota1 = document.getElementById('Not1').value;
+            var tNota2 = document.getElementById('Not2').value;
+            NotaFinal = Number(tNota1)+Number(tNota2);
+            notFinal = "NOTA FINAL = " + NotaFinal.toFixed(1);
+            final = "";
+            if(NotaFinal>=60.0){
+                final = "APROVADO"
+                document.getElementById("resul").innerHTML = notFinal
+                document.getElementById("gabarito").innerHTML = final
+            } else {
+                final = "REPROVADO"
+                document.getElementById("resul").innerHTML = notFinal
+                document.getElementById("gabarito").innerHTML = final
+            }
+        }
+        document.querySelector('#Not2').addEventListener('keydown', function (event) {
+        if (event.keyCode !== 13) return;
+        resultado();
+    })
+    </script>
+</html>

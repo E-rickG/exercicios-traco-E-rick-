@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>numeros pares</title>
+</head>
+<body style="background-color: #1c1c1c ;">
+    <div>
+        <center>
+            <font color="#ffffff;">
+                <label>
+                    <h1>
+                        Números pares!!
+                    </h1>
+                </label>
+            </font>
+        </center>
+    </div>
+    <div id="explicacao">
+        <center>
+            <font color="#fffff">
+                <label>
+                    Leia um valor inteiro X. Em seguida mostre os pares de 1 até X, um valor por
+                    linha, inclusive o X, se for o caso.<br><br>
+                </label>
+            </font>
+        </center>
+    </div>
+    <div id="acoes">
+        <center>
+            <font color="#fffff">
+                <label>Digite o valor de X: </label>
+                <input type="number" id="X" value="0" name="ValorDeX"><br><br>
+                <input type="button" id="botao" value="CALCULAR" onclick="numPares();"
+            </font>
+        </center>
+    </div>
+    <div>
+        <center>
+            <font color="#fffff">
+                <p id="gabarito"></p>
+            </font>
+        </center>
+    </div>
+</body>
+<script>
+    let tX = document.getElementById("X");
+    let resultado = document.getElementById("gabarito");
+    let botao = document.getElementById("botao");
+    var saidaGaba = document.getElementById("gabarito");
+
+    function numPares(){
+        x = parseInt(tX.value);
+        saidaGaba.innerHTML = "";
+
+        let num = 0;
+        for(let i = 1; i <= x; i++){
+            if( i % 2 == 0){
+                num = i;
+                saidaGaba.innerHTML += num + "<br>";
+            }
+        }
+    }
+    document.querySelector('#X').addEventListener('keydown', function (event) {
+    if (event.keyCode !== 13) return;
+    numPares();
+    })
+</script>
+</html>

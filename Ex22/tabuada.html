@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tabuada</title>
+</head>
+<body style="background-color: #1c1c1c ;">
+    <div id="titulo">
+        <center>
+            <font color="#ffffff;">
+                <h1>
+                    Tabuada!!
+                </h1>
+            </font>
+        </center>
+    </div>
+    <div id="explicacao">
+        <center>
+            <font color="#fffff;">
+                <p>
+                    Ler um número inteiro N, daí mostrar na tela a tabuada de N para 1 a 10.
+                </p>
+            </font>
+        </center>
+    </div>
+    <div id="acoes">
+        <center>
+            <font color="#fffff;">
+                <label>Deseja a tabuada para qual valor? </label>
+                <input type="number" id="valor" value="0" name="valor"><br><br>
+                <input type="button" id="botao" value="CALCULAR" onclick="calculaTab()"><br>
+            </font>
+        </center>
+    </div>
+    <div>
+        <center>
+            <font color="#fffff;">
+                <p id="gabarito"></p>
+            </font>
+        </center>
+    </div>
+</body>
+<script>
+    var saidaValor = document.getElementById("gabarito")
+    function calculaTab(){
+        let tvalor = document.getElementById("valor").value;
+        saidaValor.innerHTML = "";
+        for(let i = 0; i<=10; i++){
+            if(tvalor === ""){
+                alert("Insira um número");
+                saidaValor.innerHTML = "<br>";
+                break;
+            } else{
+                saida = tvalor * i ;
+                saidaValor.innerHTML += tvalor + " x " + i + " = " + saida + "<br>";
+            }
+        }
+        }
+        document.querySelector('#valor').addEventListener('keydown', function (event) {
+    if (event.keyCode !== 13) return;
+    calculaTab();
+    })
+</script>
+</html>

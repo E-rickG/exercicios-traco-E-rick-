@@ -1,0 +1,67 @@
+<html>
+    <body style="background-color: #1c1c1c ;">
+        <center>
+        <p id="cabecalho"> 
+                <font color="#ffffff;">
+                    <h1>
+                        Valor de Troco
+                    </h1>
+                </font>
+        </p>
+        </center>
+        <p id="explicacao">
+            <center>
+                <font color="#fffff;">
+                    Fazer um programa para calcular o troco no processo de pagamento de
+                    um produto de uma mercearia. O programa deve ler o preço unitário do
+                    produto, a quantidade de unidades compradas deste produto, e o valor em
+                    dinheiro dado pelo cliente. Seu programa deve mostrar o valor do troco a ser devolvido ao cliente.
+                </font>
+            </center>
+        </p>
+        <p id="acoes">
+            <center>
+                <font color="#fffff;">
+                    Preço unitário <input type="text" id="Pp" name="PrecoProduto"><br><br>
+                    Quantidade comprada <input type="text" id="Quant" name="QuantidadeComprada"><br><br>
+                    Dinheiro recebido <input type="text" id="Din" name="DinheiroRecebido"><br><br>
+                    <input type="button" value="CALCULAR" onclick="TROCO();"><br>
+                </font>
+            </center>
+        </p>
+        <center>
+            <font color="#fffff;">
+                <p id="gabarito"></p>
+            </font>
+        </center>
+    </body>
+    <script>
+        function TROCO(){
+            var tPRECO = document.getElementById('Pp').value;
+            var tQUANT = document.getElementById('Quant').value;
+            var tDIN = document.getElementById('Din').value;
+            PTOT=tPRECO*tQUANT;
+
+            var volta = "";
+            if(tDIN>=PTOT){
+                troco = tDIN-PTOT;
+                volta = "TROCO = " + troco.toFixed(2);
+            } else{
+                volta = "NÃO É POSSÍVEL EFETUAR ESTA COMPRA";
+            }
+            document.getElementById("gabarito").innerHTML = volta
+        }
+        document.querySelector('#Pp').addEventListener('keydown', function (event) {
+    if (event.keyCode !== 13) return;
+    TROCO();
+    })
+    document.querySelector('#Quant').addEventListener('keydown', function (event) {
+    if (event.keyCode !== 13) return;
+    TROCO();
+    })
+    document.querySelector('#Din').addEventListener('keydown', function (event) {
+    if (event.keyCode !== 13) return;
+    TROCO();
+    })
+    </script>
+</html>

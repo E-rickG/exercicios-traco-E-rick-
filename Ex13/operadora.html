@@ -1,0 +1,57 @@
+<html>
+    <body style="background-color: #1c1c1c ;">
+        <p id="cacecalho">
+            <center>
+                <font color="#ffffff;">
+                    <h1>
+                        Valor da operadora
+                    </h1>
+                </font>
+            </center>
+        </p>
+        <p id="explicacao">
+            <center>
+                <font color="#fffff;">
+                    Uma operadora de telefonia cobra R$ 50.00 por um plano básico que dá
+                    direito a 100 minutos de telefone. Cada minuto que exceder a franquia de
+                    100 minutos custa R$ 2.00. Fazer um programa para ler a quantidade de
+                    minutos que uma pessoa consumiu, daí mostrar o valor a ser pago.
+                </font>
+            </center>
+        </p>
+        <p id="acoes">
+            <center>
+                <font color="#fffff;">
+                    Digite a quantidade de minutos: <input type="text" value="0" id="Qmin" name="QuantidadeDeMin"><br><br>
+                    <input type="button" value="CALCULAR" onclick="calculaValor();">
+                </font>
+            </center>
+        </p>
+        <center>
+            <font color="#fffff;">
+                <p id="gabarito"></p>
+            </font>
+        </center>
+    </body>
+    <script>
+        function calculaValor(){
+            var tQmin = document.getElementById('Qmin').value;
+            InfoPagar = "";
+            if(tQmin>100){
+                exce = (tQmin-100)*2;
+                ValPagar = 50 + exce;
+                InfoPagar = "Valor a Pagar: R$ " + ValPagar.toFixed(2);
+            } else if(tQmin<0){
+                alert("Insira um valor válido");
+            } else{
+                ValPagar = 50;
+                InfoPagar = "Valor a Pagar: R$ " + ValPagar.toFixed(2);
+            }
+            document.getElementById("gabarito").innerHTML = InfoPagar
+        }
+        document.querySelector('#Qmin').addEventListener('keydown', function (event) {
+        if (event.keyCode !== 13) return;
+        calculaValor();
+    })
+    </script>
+</html>

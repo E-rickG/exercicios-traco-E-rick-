@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numeros</title>
+</head>
+<body style="background-color: #1c1c1c ;">
+    <div id="titulo">
+        <center>
+            <font color="#ffffff;">
+                <label>
+                    <h1>
+                        Número por extenso!
+                    </h1>
+                </label>
+            </font>
+        </center>
+    </div>
+    <div id="explicacao">
+        <center>
+            <font color="#fffff;">
+                <label>
+                    Escreva um programa que receba um valor numérico de até dois
+                    algarismos e transcreva esse valor por extenso.<br><br>
+                </label>
+            </font>
+        </center>
+    </div>
+    <div id="acoes">
+        <center>
+            <font color="#fffff;">
+                <label>Número: </label>
+                <input type="number" id="valor_input" value="0" name="valor" maxlength="2" min="0" max="99"><br><br>
+                <input type="button" id="botao" value="CALCULAR" onclick="NumExtenso();"><br>
+            </font>
+        </center>
+    </div>
+    <div id="resultado">
+        <center>
+            <font color="#fffff;">
+                <p id="gabarito"></p>
+            </font>
+        </center>
+    </div>
+    <script>
+        function NumExtenso(){
+            var constValor = document.getElementById("valor_input").value;
+            var strValor = String(constValor);
+            var resposta = "Saida: "
+            var unidade = "";
+            var dezena = "";
+            var saida = "";
+            // números abaixo de 10
+            if(constValor<10){
+                for(let i = 0; i <= strValor; i++){
+                    if(strValor[0]==='0'){
+                        unidade = "Zero.";
+                    } else if(strValor[0]==='1'){
+                        unidade = "Um.";
+                    }else if(strValor[0]==='2'){
+                        unidade = "Dois."
+                    }else if(strValor[0]==='3'){
+                        unidade = "Três."
+                    }else if(strValor[0]==='4'){
+                        unidade = "Quatro."
+                    }else if(strValor[0]==='5'){
+                        unidade = "Cinco."
+                    }else if(strValor[0]==='6'){
+                        unidade = "Seis."
+                    }else if(strValor[0]==='7'){
+                        unidade = "Sete."
+                    }else if(strValor[0]==='8'){
+                        unidade = "Oito."
+                    }else if(strValor[0]==='9'){
+                        unidade = "Nove."
+                    }
+                }
+            }
+            // de 10 até menor que 20
+            if(constValor>=10){
+                var strValor = String(constValor);
+                for(let i = 0; i<= strValor; i++){
+                    if((strValor[0]==='1')&&(strValor[1]==='0')){
+                        dezena = "Dez";
+                        unidade = ".";
+                    } else if((strValor[0]==='1')&&(strValor[1]==='1')){
+                        dezena = "Onze";
+                        unidade = ".";
+                    } else if((strValor[0]==='1')&&(strValor[1]==='2')){
+                        dezena = "Doze";
+                        unidade = ".";
+                    } else if((strValor[0]==='1')&&(strValor[1]==='3')){
+                        dezena = "Treze";
+                        unidade = ".";
+                    } else if((strValor[0]==='1')&&(strValor[1]==='4')){
+                        dezena = "Catorze";
+                        unidade = ".";
+                    } else if((strValor[0]==='1')&&(strValor[1]==='5')){
+                        dezena = "Quinze";
+                        unidade = ".";
+                    } else if((strValor[0]==='1')&&(strValor[1]==='6')){
+                        dezena = "Deze";
+                        unidade = "sseis.";
+                    } else if((strValor[0]==='1')&&(strValor[1]==='7')){
+                        dezena = "Deze";
+                        unidade = "ssete.";
+                    } else if((strValor[0]==='1')&&(strValor[1]==='8')){
+                        dezena = "Dez";
+                        unidade = "oito.";
+                    } else if((strValor[0]==='1')&&(strValor[1]==='9')){
+                        dezena = "Deze";
+                        unidade = "nove.";
+                    }
+                }
+            }
+            //entre 20 até 99
+            if(constValor>=20){
+                var strValor = String(constValor);
+                for(let i = 0; i <= strValor; i++){
+                    if(strValor[0]==='2'){
+                        dezena = "Vinte";
+                   } else if(strValor[0]==='3'){
+                        dezena = "Trinta";
+                    } else if(strValor[0]==='4'){
+                        dezena ="Quarenta";
+                    } else if(strValor[0]==='5'){
+                        dezena = "Cinquenta";
+                    } else if(strValor[0]==='6'){
+                        dezena = "Sessenta";
+                    } else if(strValor[0]==='7'){
+                        dezena = "Setenta";
+                    }  else if(strValor[0]==='8'){
+                        dezena = "Oitenta";
+                    }  else if(strValor[0]==='9'){
+                        dezena = "Noventa";
+                    }
+
+                    if(strValor[1]==='0'){
+                        unidade = ".";
+                    }else if(strValor[1]==='1'){
+                        unidade = " e Um.";
+                    } else if(strValor[1]==='2'){
+                        unidade = " e Dois.";
+                    } else if(strValor[1]==='3'){
+                        unidade = " e Três.";
+                    } else if(strValor[1]==='4'){
+                        unidade = " e Quatro.";
+                    } else if(strValor[1]==='5'){
+                        unidade = " e Cinco.";
+                    } else if(strValor[1]==='6'){
+                        unidade = " e Seis.";
+                    } else if(strValor[1]==='7'){
+                        unidade = " e Sete.";
+                    } else if(strValor[1]==='8'){
+                        unidade = " e Oito.";
+                    } else if(strValor[1]==='9'){
+                        unidade = " e Nove.";
+                    } 
+                }
+                
+            }
+            if((constValor<0)||(constValor>99)){
+                alert("somente números entre 0 e 99!!");
+                resposta = "";
+                dezena = "";
+                unidade = "";
+            }
+            saida = resposta + dezena + unidade;
+            document.getElementById('gabarito').innerHTML = saida
+        }
+        document.querySelector('#valor_input').addEventListener('keydown', function (event) {
+        if (event.keyCode !== 13) return;
+        NumExtenso();
+    })
+    </script>
+</body>
+</html>

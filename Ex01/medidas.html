@@ -1,0 +1,58 @@
+<html>
+    <body style="background-color:#1C1C1C;">
+        <center>
+            <p id="cabecalho">
+                <h1>
+                    <font color="#ffffff;">
+                        Calculadora de Área e valor de terreno
+                    </font>
+                </h1>
+            </p>
+        </center>
+        <p id="explicacao">
+            <center>
+                <font color="#fffff;">
+                    Fazer um programa para ler as medidas da largura e comprimento de um
+                    terreno retangular com uma casa decimal, bem como o valor do metro
+                    quadrado do terreno com duas casas decimais. Em seguida, o programa
+                    deve mostrar o valor da área do terreno, bem como o valor do preço do
+                    terreno
+                </font>
+            </center>
+        </p>
+        <p id="acoes">
+            <center>
+                <font color="#fffff;">
+                    Largura do terreno: <input type="text" id="Lar" value="0.0" name="largura"><br><br>
+                    Comprimento do terreno: <input type="text" id="Comp" value="0.0" name="comprimento"><br><br>
+                    Valor do metro quadrado: <input type="text" id="Valm2" value="0.00" name="valorm2"><br><br>
+                </font>
+            </center>
+        </p>
+        <p id="gabarito">
+            <center>
+                <font color="#fffff;">
+                    Área do terreno = <input id="A" value="0.00" name="area" readonly>
+                    Preço do terreno = <input id="RS" value="0.00" name="valor" readonly>
+                </font>
+            </center>
+        </p>
+    </body>
+    <script>
+        var tLar = document.getElementById('Lar');
+        var tComp = document.getElementById('Comp');
+        var tValm2 = document.getElementById('Valm2');
+        var tA = document.getElementById('A');
+
+        tLar.onkeyup=calculaA;
+        tComp.onkeyup=calculaA;
+        tValm2.onkeyup=calculaRS;
+
+        function calculaA(){
+            A.value=(tLar.value*tComp.value).toFixed(2);
+        }
+        function calculaRS(){
+            RS.value=(tA.value*tValm2.value).toFixed(2);
+        }
+    </script>
+</html>

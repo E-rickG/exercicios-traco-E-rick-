@@ -1,0 +1,45 @@
+<html>
+    <body style="background-color: #1c1c1c ;">
+        <p id="cabeçalho">
+            <center>
+                <font color="#ffffff;">
+                    <h1>
+                        Área de um circulo!
+                    </h1>
+                </font>
+            </center>
+        </p>
+        <p id="explicacao">
+            <center>
+                <font color="#fffff;">
+                    Fazer um programa para ler o valor "r" do raio de um círculo, e depois
+                    mostrar o valor da área do círculo com três casas decimais. A fórmula da
+                    área do círculo é a seguinte: área = π. r². O valor de π corresponde a 3.14159.
+                </font>
+            </center>
+        </p>
+        <p id="acoes">
+            <center>
+                <font color="#fffff;">
+                    Digite o valor do raio do círculo: <input type="text" value="0.0" id="r" nome="raio"><br>
+                </font>
+            </center>
+        </p>
+        <p id="gabarito">
+            <center>
+                <font color="#fffff;">
+                    ÁREA = <input type="text" id="A" nome="area"><br>
+                </font>
+            </center>
+        </p>
+    </body>
+    <script>
+        var tr = document.getElementById('r');
+
+        tr.onkeyup = calculaAC;
+
+        function calculaAC(){
+            A.value = (Math.PI*(tr.value*tr.value)).toFixed(3);
+        }
+    </script>
+</html>

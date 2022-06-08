@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>palindromo</title>
+</head>
+<body style="background-color: #1c1c1c ;">
+    <div id="titulo">
+        <center>
+            <font color="#ffffff;">
+                <h1>
+                    <p>
+                        Palindromo!!
+                    </p>
+                </h1>
+            </font>
+        </center>
+    </div>
+    <div id="explicacao">
+        <center>
+            <font color="#fffff;">
+                Fazer um programa para verificar se um número ou palavra é palíndroma;
+                Exibir como saída se o número ou palavra "é palíndroma" ou "não é
+                palíndroma". Um palíndromo é algo que pode ser lido em qualquer
+                sentido. Ex.: 110011, Reger, Osso.<br><br>
+            </font>
+        </center>
+    </div>
+    <div id="acoes">
+        <center>
+            <font color="#fffff;">
+                <label>Palavra : </label>
+                <input type="text" id="palavra" name="Palavra"><br><br>
+                <input type="button" id="botao" value="CALCULAR" onclick="palimdromo();">
+            </font>
+        </center>
+    </div>
+    <div>
+        <center>
+            <font color="#fffff;">
+                <p id="gabarito"></p>
+            </font>
+        </center>
+    </div>
+</body>
+<script>
+    function palimdromo(){
+        var tpalavra = document.getElementById('palavra').value;
+        const pala = String(tpalavra.toLowerCase().replace(/\s+/g, ''));
+        let palaInver = pala.split("").reverse().join("");
+        saida = "";
+
+        if(pala === palaInver){
+            saida = "Saída: É palíndroma.";
+        } else {
+            saida = "Saída: Não é palíndroma.";
+        }
+
+        document.getElementById('gabarito').innerHTML = saida
+    }
+    document.querySelector('#palavra').addEventListener('keydown', function (event) {
+        if (event.keyCode !== 13) return;
+        palimdromo();
+        });
+</script>
+</html>

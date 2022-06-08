@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>somatorio</title>
+</head>
+<body style="background-color: #1c1c1c ;">
+    <center>
+        <p id="cabecalho"> 
+                <font color="#ffffff;">
+                    <h1>
+                        Somatório
+                    </h1>
+                </font>
+        </p>
+    </center>
+    <p id="explicacao">
+        <center>
+            <font color="#fffff;">
+                Escreva um programa que exiba a soma de todos os números
+                compreendidos entre um intervalo dado pelo usuário.
+            </font>
+        </center>
+    </p>
+    <div id="acoes">
+        <center>
+            <font color="#fffff;">
+                <label>Número inicial :</label>
+                <input type="number" id="NumIni" value="0" name="numeros"><br><br>
+                <label>Número final :</label>
+                <input type="number" id="NumFin" value="0" name="numeros"><br><br>
+                <input type="button" id="botao" value="CALCULAR" onclick="calculo();">
+            </font>
+        </center>
+    </div>
+    <div>
+        <center>
+            <font color="#fffff;">
+                <p id="gabarito"></p><br>
+            </font>
+        </center>
+    </div>
+</body>
+<script>
+    let valorA =  document.getElementById("NumIni");
+    let valorB =  document.getElementById("NumFin");
+    let resultado = document.getElementById("gabarito");
+    let botao = document.getElementById("botao");
+    
+    function calculo() {
+        a = parseInt(valorA.value);
+        b = parseInt(valorB.value);
+        
+        let soma = 0;
+        for (let i = a; i <= b; i++){
+                soma += i;
+                resultado.innerHTML = "Resultado : " + soma;
+        }
+    };
+    document.querySelector('#NumFin').addEventListener('keydown', function (event) {
+        if (event.keyCode !== 13) return;
+        calculo();
+    })
+</script>
+</html>

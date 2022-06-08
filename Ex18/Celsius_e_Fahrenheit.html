@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celcius e Fahrenheit</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body style="background-color: #1c1c1c ;">
+    <center>
+        <p id="cabecalho"> 
+                <font color="#ffffff;">
+                    <h1>
+                        Celsius e Fahrenheit
+                    </h1>
+                </font>
+        </p>
+    </center>
+    <p id="explicacao">
+        <center>
+            <font color="#fffff;">
+                Deseja-se converter uma medida de temperatura da escala Celsius para
+                Fahrenheit ou vice-versa. Para isso, você deve construir um programa que
+                leia a letra "C" ou "F" indicando em qual escala vai ser informada uma
+                temperatura. Em seguida, o programa deve mostrar a temperatura na
+                outra escala com duas casas decimais. Você deve pesquisar as fórmulas
+                para conversão de Fahrenheit->Celsius e de Celsius->Fahrenheit.
+            </font>
+        </center>
+    </p>
+    <form>
+        <div>
+            <center>
+                <font color="#fffff;">
+                    <label>Você vai digitar a temperatura em qual escala (C/F)?</label>
+                    <label>
+                        <input type="radio" id="OpC" name="Opcao" value="C">C
+                    </label>
+                    <label>
+                        <input type="radio" id="OpF" name="Opcao" value="F">F
+                    </label><br>
+                    <input type="submit" id="btnSubmit" value="ENVIAR"> 
+                </font>
+            </center>
+        </div>
+    </form>
+</body>
+<script>
+    document.getElementById("btnSubmit").onclick = function(){
+        var radios = document.getElementsByName("Opcao");
+        for(var i = 0; i < 1; i++){
+            if(radios[0].checked){
+                alert("escolheu C")
+                window.location.href = "Celsius_e_Fahrenheit(OpcaoC).html";
+            } else if(radios[1].checked) {
+                alert("escolheu F")
+                window.location.href = "Celsius_e_Fahrenheit(OpcaoF).html";
+            } else {
+                alert("escolha uma opção")
+            }
+        }
+    };
+</script>
+</html>
+    

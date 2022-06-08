@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menor Número</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body style="background-color: #1c1c1c ;">
+    <p id="cacecalho">
+        <center>
+            <font color="#ffffff;">
+                <h1>
+                    Menor número!
+                </h1>
+            </font>
+        </center>
+    </p>
+    <p id="explicacao">
+        <center>
+            <font color="#fffff;">
+                Fazer um programa para ler três números inteiros. Em seguida, mostrar
+                qual o menor dentre os três números lidos. Em caso de empate, mostrar
+                apenas uma vez.
+            </font>
+        </center>
+    </p>
+    <p id="acoes">
+        <center>
+            <font color="#fffff;">
+                Primeiro valor : <input type="text" id="N1" value="0" name="PrimeiroNumero"><br><br>Segundo valor: <input type="text" id="N2" value="0" name="SegundoNumero"><br><br>
+                Terceiro valor: <input type="text" id="N3" value="0" name="TerceiroNumero"><br><br>
+                <input type="button" value="CALCULAR" onclick="menorFunc();"><br>
+            </font>
+        </center>
+    </p>
+    <center>
+        <font color="#fffff;">
+            <p id="gabarito"></p>
+        </font>
+    </center>
+</body>
+<script>
+    function menorFunc(){
+        var tN1 = document.getElementById('N1').value;
+        var tN2 = document.getElementById('N2').value;
+        var tN3 = document.getElementById('N3').value;
+
+        var min = Math.min(tN1,tN2,tN3);
+
+        saida = "MENOR = " + min;
+
+        document.getElementById("gabarito").innerHTML = saida
+    }
+    function focus1(){
+        document.getElementById("N2").focus();
+    }
+    document.querySelector('#N2').addEventListener('keydown', function (event) {
+        if (event.keyCode !== 13) return;
+        focus1();
+    })
+    document.querySelector('#N2').addEventListener('keydown', function (event) {
+        if (event.keyCode !== 13) return;
+        menorFunc();
+    })
+    document.querySelector('#N3').addEventListener('keydown', function (event) {
+        if (event.keyCode !== 13) return;
+        menorFunc();
+    })
+
+</script>
+</html>
+    

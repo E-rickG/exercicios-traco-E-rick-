@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vogais e Consoantes</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body style="background-color: #1c1c1c ;">
+    <head>
+        <center>
+            <font color="#ffffff;">
+                <h1>
+                    <label>
+                        Vogais e Consoantes!!
+                    </label>
+                </h1>
+            </font>
+        </center>
+    </head>
+    <div id="explicacao">
+        <center>
+            <font color="#fffff;">
+                Fazer um programa para receber uma palavra (string); Calcular a
+                quantidade de vogais e a quantidade consoantes da palavra; Exibir os
+                valores calculados.<br><br>
+            </font>
+        </center>
+    </div>
+    <div id="acoes">
+        <center>
+            <font color="#fffff;">
+                <label>Palavra: </label>
+                <input type="text" id="palavra" name="Palavra"><br><br>
+                <input type="button" id="botao" value="CALCULAR" onclick="calcula();"><br><br>
+            </font>
+        </center>
+    </div>
+    <div>
+        <center>
+            <font color="#fffff;">
+                <label id="gabaritoV"></label><br>
+                <label id="gabaritoC"></label><br>
+            </font>
+        </center>
+    </div>
+    <script>
+        function calcula(){
+            var tpalavra = document.getElementById('palavra').value;
+            const pala = String(tpalavra);
+            
+            let contV = 0;
+            var vogais = ['A','a','E','e','I','i','O','o','U','u'];
+            var caracteres_especiais = ['@','!','#','$','¨','%','^','&','*','(',')','/','.',':','?','{','}','|','[',']']; 
+            var i;
+            let contC = -1;
+            saidaV = "";
+            saidaC = "";
+        for(let i = 0; i <= pala.length; i++){
+            if( vogais.indexOf(pala[i]) != -1 ){
+                contV++;
+            } else{
+                contC++;
+            }
+            saidaV = "Vogais: " + contV;
+            saidaC = "Consoantes: " + contC;
+            if(isNaN(pala[i]) === false){
+                alert("Apenas letras");
+                document.getElementById('palavra').value='';
+                saidaV = "";
+                saidaC = "";
+                break;
+            } else if(caracteres_especiais.indexOf(pala[i]) != -1){
+                alert("Apenas letras");
+                document.getElementById('palavra').value='';
+                saidaV = "";
+                saidaC = "";
+                break;
+            }
+        }
+        document.getElementById("gabaritoV").innerHTML = saidaV
+        document.getElementById("gabaritoC").innerHTML = saidaC
+        }
+        document.querySelector('#palavra').addEventListener('keydown', function (event) {
+    if (event.keyCode !== 13) return;
+    calcula();
+});
+    </script>
+</body>
+</html>

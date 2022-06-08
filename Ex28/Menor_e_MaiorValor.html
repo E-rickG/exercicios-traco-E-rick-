@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menor e Maior valor</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body style="background-color: #1c1c1c ;">
+    <div id="titulo">
+        <center>
+            <font color="#ffffff;">
+                <h1>
+                    <label>
+                        Menor e Maior valor
+                    </label>
+                </h1>
+            </font>
+        </center>
+    </div>
+    <div id="explicação">
+        <center>
+            <font color="#fffff;">
+                <label>
+                    Receber 5 valores numéricos e exibir apenas o Menor valor e o Maior valor;
+                </label><br><br>
+            </font>
+        </center>
+    </div>
+    <div>
+        <center>
+            <font color="#fffff;">
+                <label>Valores: </label>
+                <input type="text" id="n1" name="numero" size="1"><label>,</label>
+                <input type="text" id="n2" name="numero" size="1"><label>,</label>
+                <input type="text" id="n3" name="numero" size="1"><label>,</label>
+                <input type="text" id="n4" name="numero" size="1"><label>,</label>
+                <input type="text" id="n5" name="numero" size="1"><br><br>
+                <input type="button" id="botao" value="CALCULAR" onclick="calcula();"
+            </font>
+        </center>
+    </div>
+    <div>
+        <center>
+            <font>
+                <p id="gabarito"></p>
+            </font>
+        </center>
+    </div>
+</body>
+<script>
+    function calcula(){
+        let tn1 = document.getElementById("n1").value;
+        let tn2 = document.getElementById("n2").value;
+        let tn3 = document.getElementById("n3").value;
+        let tn4 = document.getElementById("n4").value;
+        let tn5 = document.getElementById("n5").value;
+
+        var min = Math.min(tn1,tn2,tn3,tn4,tn5);
+        var max = Math.max(tn1,tn2,tn3,tn4,tn5);
+        saida = "";
+
+        if((isNaN(min)===true)||(isNaN(max)===true)){
+            alert("Somente números!!");
+            document.getElementById('n1').value = "";
+            document.getElementById('n2').value = "";
+            document.getElementById('n3').value = "";
+            document.getElementById('n4').value = "";
+            document.getElementById('n5').value = "";
+            saida = "";
+        } else{
+            saida = "Saída: " + min + " e " + max ;
+        }
+        document.getElementById('gabarito').innerHTML = saida
+    }
+    $('input[type="textbox"]').keyup(function(e) {
+    if(e.keyCode == 13) {
+        $(this).next().focus();
+    }
+});   
+    document.querySelector('#n5').addEventListener('keydown', function (event) {
+        if (event.keyCode !== 13) return;
+        calcula();
+    })
+</script>
+</html>

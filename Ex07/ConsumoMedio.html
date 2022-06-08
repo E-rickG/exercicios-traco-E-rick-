@@ -1,0 +1,47 @@
+<html>
+    <body style="background-color: #1c1c1c ;">
+        <p id="cabecalho">
+            <center>
+                <h1>
+                    <font color="#ffffff;">
+                        Consumo médio de combustível!
+                    </font>
+                </h1>
+            </center>
+        </p>
+        <p id="explicacao">
+            <center>
+                <font color="#fffff;">
+                    Fazer um programa para ler a distância total (em km) percorrida por um
+                    carro, bem como o total de combustível gasto por este carro ao percorrer
+                    tal distância. Seu programa deve mostrar o consumo médio do carro
+                </font>
+            </center>
+        </p>
+        <p id="acoes">
+            <center>
+                <font color="#fffff;">
+                    Distância percorrida: <input type="text" value="0" id="Dist" nome="DistanciaPercorrida"><br><br>
+                    Combustível gasto: <input type="text" value="0.0" id="Comb" nome="CombustivelGasto"><br><br>
+                </font>
+            </center>
+        </p>
+        </html><p id="gabarito">
+            <center>
+                <font color="#fffff;">
+                    Consumo médio = <input type="text" value="0.000" id="ConMed" nome="ConsumoMedio">
+                </font>
+            </center>
+        </p>
+    </body>
+    <script>
+        var tDis = document.getElementById('Dist');
+        var tComb = document.getElementById('Comb');
+
+        tDis.onkeyup = CalculaConsumo;
+        tComb.onkeyup = CalculaConsumo;
+
+        function CalculaConsumo(){
+            ConMed.value=(tDis.value/tComb.value).toFixed(3);
+        }
+    </script>

@@ -1,0 +1,49 @@
+<html>
+    <body style="background-color: #1c1c1c ;">
+        <p id="cacecalho">
+            <center>
+                <font color="#ffffff;">
+                    <h1>
+                        Segundos para h:min:seg
+                    </h1>
+                </font>
+            </center>
+        </p>
+        <p id="explicacao">
+            <center>
+                <font color="#fffff;">
+                    Fazer um programa para ler uma duração de tempo em segundos, daí
+                    imprimir na tela esta duração no formato horas:minutos:segundos.
+                </font>
+            </center>
+        </p>
+        <p id="acoes">
+            <center>
+                <font color="#fffff;">
+                    Digite a duração em segundos <input type="text" value="0" id="seg" name="TempoEmSeg">
+                    <input type="button" value="CALCULAR" onclick="calculaTemp();">
+                </font>
+            </center>
+        </p>
+        <center>
+            <font color="#fffff;">
+                <p id="gabarito"></p>
+            </font>
+        </center>
+    </body>
+    <script> 
+        function calculaTemp(){
+            var tseg = document.getElementById('seg').value;
+            s = tseg%60;
+            tmin = tseg/60;
+            m = tmin%60;
+            h = tmin/60;
+            infoTempo = Math.trunc(h) + ":" + Math.trunc(m) + ":" + Math.trunc(s);
+            document.getElementById("gabarito").innerHTML = infoTempo
+        }
+        document.querySelector('#seg').addEventListener('keydown', function (event) {
+    if (event.keyCode !== 13) return;
+    calculaTemp();
+    })
+    </script>
+</html>

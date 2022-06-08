@@ -1,0 +1,49 @@
+<html>
+    <body style="background-color: #1c1c1c ;">
+        <center>
+            <p id="titulo">
+               <font color="#ffffff;">
+                   <h1>
+                       Propriedades do retângulo
+                    </h1>
+                </font>
+        </center> 
+    </p>
+    <p id="explicacao">
+        <center>
+            <font color="#fffff;">
+                Fazer um programa para ler as medidas da base e altura de um retângulo.
+                Em seguida, mostrar o valor da área, perímetro e diagonal deste retângulo
+            </font>
+        </center>
+    </p>
+    <p id="acoes">
+        <center>
+            <font color="#fffff;">
+                Base do retângulo: <input type="text" id="B" value="0.0" name="base"><br><br>
+                Altura do retângulo: <input type="text" id="H" value="0.0" name="altura"><br><br>
+                <input type="button" value="CALCULAR" onclick="calculadora();">
+            </font>
+        </center>
+    </p>
+    <p id="gabarito">
+        <center>
+            <font color="#fffff;">
+                ÁREA = <input type="text" id="A" value="0.0000" name="Area">
+                PERÍMETRO = <input type="text" id="P" value="0.0000" name="parimetro">
+                DIAGONAL = <input type="text" id="D" value="0.0000" name="diagonal">
+            </font>
+        </center>
+    </p>
+    </body>
+    <script>
+        var tB = document.getElementById('B');
+        var tH = document.getElementById('H');
+
+        function calculadora(){
+            A.value=(tB.value*tH.value).toFixed(4);
+            P.value=(tB.value*2 + tH.value*2).toFixed(4);
+            D.value=(Math.hypot(tB.value,tH.value)).toFixed(4);
+        }
+    </script>
+</html> 

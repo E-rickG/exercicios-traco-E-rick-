@@ -1,0 +1,85 @@
+<html>
+    <body style="background-color: #1c1c1c ;">
+        <center>
+            <p id="cabecalho"> 
+                    <font color="#ffffff;">
+                        <h1>
+                            Celsius e Fahrenheit
+                        </h1>
+                    </font>
+            </p>
+        </center>
+        <p id="explicacao">
+            <center>
+                <font color="#fffff;">
+                    Deseja-se converter uma medida de temperatura da escala Celsius para
+                    Fahrenheit ou vice-versa. Para isso, você deve construir um programa que
+                    leia a letra "C" ou "F" indicando em qual escala vai ser informada uma
+                    temperatura. Em seguida, o programa deve mostrar a temperatura na
+                    outra escala com duas casas decimais. Você deve pesquisar as fórmulas
+                    para conversão de Fahrenheit->Celsius e de Celsius->Fahrenheit.
+                </font>
+            </center>
+        </p>
+        <form>
+            <div>
+                <center>
+                    <font color="#fffff;">
+                        <label>Você vai digitar a temperatura em qual escala (C/F)?</label>
+                        <label>
+                            <input type="radio" id="OpC" name="Opcao" value="C">C
+                        </label>
+                        <label>
+                            <input type="radio" id="OpF" name="Opcao" value="F" checked>F
+                        </label><br>
+                        <input type="submit" id="btnSubmit" value="ENVIAR"> 
+                    </font>
+                </center>
+            </div>
+        </form>
+        <div>
+            <center>
+                <font color="#fffff;">
+                    <label>Digite a temperatura em Fahrenheit:</label>:
+                    <input type="text" id="valor" name="valor"><br>
+                    <input type="button" value="CALCULAR" onclick="calculaTemp();"
+                </font>
+            </center>
+        </div>
+        <div>
+            <center>
+                <font color="#fffff;">
+                    <p id="gabarito"></p>
+                </font>
+            </center>
+        </div>
+    </body>
+    <script>
+        document.getElementById("btnSubmit").onclick = function(){
+            var radios = document.getElementsByName("Opcao");
+            for(var i = 0; i < 1; i++){
+                if(radios[0].checked){
+                    alert("escolheu C")
+                    window.location.href = "./Celsius_e_Fahrenheit(OpcaoC).html";
+                } else if(radios[1].checked) {
+                    alert("escolheu F")
+                    window.location.href = "./Celsius_e_Fahrenheit(OpcaoF).html";
+                } else {
+                    alert("escolha uma opção")
+                }
+            }
+        };
+        function calculaTemp(){
+            var tvalor = document.getElementById("valor").value;
+            temp = (Number(tvalor)-32)*(5/9);
+            saida = "";
+            if((-Infinity)<tvalor<Infinity){
+                saida = "Temperatura equivalente em Celsius:: " + temp.toFixed(2);
+            } else{
+                alert("Digite um valor de temperatura válido!!");
+                saida = "";
+            }
+            document.getElementById('gabarito').innerHTML = saida
+        }
+    </script>
+</html>

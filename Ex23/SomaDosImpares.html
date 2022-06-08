@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>soma dos impares</title>
+</head>
+<body style="background-color: #1c1c1c ;">
+    <center>
+        <p id="cabecalho"> 
+                <font color="#ffffff;">
+                    <h1>
+                        Soma dos impares!!
+                    </h1>
+                </font>
+        </p>
+    </center>
+    <p id="explicacao">
+        <center>
+            <font color="#fffff;">
+                Leia dois valores inteiros X e Y. A seguir, calcule e mostre a soma dos
+                números ímpares entre eles.
+            </font>
+        </center>
+    </p>
+    <div id="acoes">
+        <center>
+            <font color="#fffff;">
+                <label>Digite dois números :</label><br>
+                <input type="number" id="NumIni" value="0" name="numeros"><br><br>
+                <input type="number" id="NumFin" value="0" name="numeros"><br><br>
+                <input type="button" id="botao" value="CALCULAR" onclick="calculo();">
+            </font>
+        </center>
+    </div>
+    <div>
+        <center>
+            <font color="#fffff;">
+                <p id="gabarito"></p><br>
+            </font>
+        </center>
+    </div>
+</body>
+<script>
+    let valorA =  document.getElementById("NumIni");
+    let valorB =  document.getElementById("NumFin");
+    let resultado = document.getElementById("gabarito");
+    let botao = document.getElementById("botao");
+    
+    function calculo() {
+        a = parseInt(valorA.value);
+        b = parseInt(valorB.value);
+
+        if(a>b){
+        alert("O segundo número deve ser maior!!")
+        resultado.innerHTML = "";
+    } else {
+        let soma = 0;
+        for (let i = a; i <= b; i++){
+            if(i % 2 !== 0){
+                soma += i;   
+            }
+            resultado.innerHTML = "SOMA DOS ÍMPARES = " + soma;
+        }
+    }
+    };
+    document.querySelector('#NumFin').addEventListener('keydown', function (event) {
+    if (event.keyCode !== 13) return;
+    calculo();
+    })
+</script>
+</html>

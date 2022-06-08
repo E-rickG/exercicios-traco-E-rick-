@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aumento</title>
+</head>
+<body style="background-color: #1c1c1c ;">
+    <center>
+        <p id="cabecalho"> 
+                <font color="#ffffff;">
+                    <h1>
+                        Aumento percentual de salário!!
+                    </h1>
+                </font>
+        </p>
+    </center>
+    <p id="explicacao">
+        <center>
+            <font color="#fffff;">
+                Uma empresa vai conceder um aumento percentual de salário aos seus
+                funcionários dependendo de quanto cada pessoa ganha, conforme tabela
+                ao lado. Fazer um programa para ler o salário de uma pessoa, daí mostrar
+                qual o novo salário dessa pessoa depois do aumento, quanto foi o aumento
+                e qual foi a porcentagem de aumento.
+            </font>
+        </center>
+    </p>
+    <div id="tabela">
+        <style type="text/css">
+            .tg  {border-collapse:collapse;border-spacing:0;}
+            .table-responsive{width: 100% !important;}
+            .table{width: 50% !important;margin:auto;}
+            .table-status {margin-top: 20px;margin-bottom: 20px !important;}
+            .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+              overflow:hidden;padding:10px 5px;word-break:normal;}
+            .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+              font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+            .tg .tg-yc5w{border-color:transparent;color:#ffffff;text-align:left;vertical-align:left}
+            .tg .tg-eubh{border-color:transparent;color:#ffffff;font-weight:bold;text-align:left;vertical-align:left}
+            </style>
+            <table class="tg" align=center>
+            <thead>
+              <tr>
+                <th class="tg-eubh">Salário atual</th>
+                <th class="tg-yc5w"></th>
+                <th class="tg-eubh">Aumento</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="tg-yc5w">Até R$999.00</td>
+                <td class="tg-yc5w">-&gt;</td>
+                <td class="tg-yc5w">20%</td>
+              </tr>
+              <tr>
+                <td class="tg-yc5w">Entre R$1000.00 e R$2999.00</td>
+                <td class="tg-yc5w">-&gt;</td>
+                <td class="tg-yc5w">15%</td>
+              </tr>
+              <tr>
+                <td class="tg-yc5w">Entre R$3000.00 e R$7999.00</td>
+                <td class="tg-yc5w">-&gt;</td>
+                <td class="tg-yc5w">10%</td>
+              </tr>
+              <tr>
+                <td class="tg-yc5w">Acima de R$8000.00</td>
+                <td class="tg-yc5w">-&gt;</td>
+                <td class="tg-yc5w">05%</td>
+              </tr>
+            </tbody>
+            </table>
+    </div>
+    <div id="acoes">
+        <p>
+            <center>
+                <font color="#fffff;">
+                    Digite o salario da pessoa: <input type="text" id="salario" name="salario" value="0.0">
+                    <input type="button" value="CALCULAR" onclick="aumentode();">
+                </font>
+            </center>
+        </p>
+    </div>
+    <div>
+        <center>
+            <font color="#fffff;">
+                <p id="NovSal"></p>
+                <p id="aumento"></p>
+                <p id="porcen"></p>
+            </font>
+        </center>
+    </div>
+</body>
+<script>
+    function aumentode(){
+        var tsalario = document.getElementById("salario").value;
+        tNovSal = "";
+        taumento = "";
+        tporcen = "";
+        if(tsalario<999){
+            nov_sal = Number(tsalario) + (tsalario * 0.2);
+            sal_aumen = tsalario * 0.2;
+            tNovSal = "Novo salário = R$ " + nov_sal.toFixed(2);
+            taumento = "Aumento = R$ " + sal_aumen.toFixed(2);
+            tporcen = "Porcentagem = 20 %";
+        } else if(tsalario<=2999){
+            nov_sal = Number(tsalario) + (tsalario * 0.15);
+            sal_aumen = tsalario * 0.15;
+            tNovSal = "Novo salário = R$ " + nov_sal.toFixed(2);
+            taumento = "Aumento = R$ " + sal_aumen.toFixed(2);
+            tporcen = "Porcentagem =  15 %";
+        } else if(tsalario<=7999){
+            nov_sal = Number(tsalario) + (tsalario * 0.1);
+            sal_aumen = tsalario * 0.1;
+            tNovSal = "Novo salário = R$ " + nov_sal.toFixed(2);
+            taumento = "Aumento = R$ " + sal_aumen.toFixed(2);
+            tporcen = "Porcentagem =  10 %";
+        } else if(tsalario>=8000){
+            nov_sal = Number(tsalario) + (tsalario * 0.05);
+            sal_aumen = tsalario * 0.05;
+            tNovSal = "Novo salário = R$ " + nov_sal.toFixed(2);
+            taumento = "Aumento = R$ " + sal_aumen.toFixed(2);
+            tporcen = "Porcentagem =  05 %";
+        } else{
+            alert("Insira um salário válido");
+            tNovSal = "";
+            taumento = "";
+            tporcen = "";
+        }
+        document.getElementById('NovSal').innerHTML = tNovSal
+        document.getElementById('aumento').innerHTML = taumento
+        document.getElementById('porcen').innerHTML = tporcen
+    }
+    document.querySelector('#salario').addEventListener('keydown', function (event) {
+        if (event.keyCode !== 13) return;
+        aumentode();
+    })
+</script>
+</html>

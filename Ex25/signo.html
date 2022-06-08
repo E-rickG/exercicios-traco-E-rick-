@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signo</title>
+</head>
+<body style="background-color: #1c1c1c ;">
+    <head>
+        <center>
+            <font color="#ffffff;">
+                <h1>
+                    <label>Descobridor de signo!!</label>
+                </h1>
+            </font>
+        </center>
+    </head>
+    <div id="explicacao">
+        <center>
+            <font color="#fffff;">
+                <label>
+                    Receber valores numéricos para o dia e o mês de nascimento de uma
+                    pessoa; Exibir o signo da pessoa de acordo com os seguintes critérios:
+                </label>
+            </font>
+        </center>
+    </div>
+    <div id="tabela">
+        <style type="text/css">
+            .tg  {border-collapse:collapse;border-spacing:0;}
+            .table-responsive{width: 100% !important;}
+            .table{width: 50% !important;margin:auto;}
+            .table-status {margin-top: 20px;margin-bottom: 20px !important;}
+            .tg td{border-color:transparent;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+                overflow:hidden;padding:10px 5px;word-break:normal;}
+            .tg th{border-color:transparent;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+                font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+            .tg .tg-kw6a{border-color:transparent;color:#ffffff;text-align:left;vertical-align:center}
+            </style>
+            <table class="tg" align="center">
+            <tbody>
+                <tr>
+                    <td class="tg-kw6a">Áries: de 21 de março a 20 de abril;</td>
+                </tr>
+                <tr>
+                    <td class="tg-kw6a">Touro: de 21 de abril a 20 de maio;</td>
+                </tr>
+                <tr>
+                    <td class="tg-kw6a">Gêmeos: de 21 de maio a 20 de junho;</td>
+                </tr>
+                <tr>
+                    <td class="tg-kw6a">Câncer: de 21 de junho a 22 de julho;</td>
+                </tr>
+                <tr>
+                    <td class="tg-kw6a">Leão: de 23 de julho a 22 de agosto;</td>
+                </tr>
+                <tr>
+                    <td class="tg-kw6a">Virgem: de 23 de agosto a 22 de setembro;</td>
+                </tr>
+                <tr>
+                    <td class="tg-kw6a">Libra: de 23 de setembro a 22 de outubro;</td>
+                </tr>
+                <tr>
+                    <td class="tg-kw6a">Escorpião: de 23 de outubro a 21 de novembro;</td>
+                </tr>
+                <tr>
+                    <td class="tg-kw6a">Sagitário: de 22 de novembro a 21 de dezembro;</td>
+                </tr>
+                <tr>
+                    <td class="tg-kw6a">Capricórnio: de 22 de dezembro a 20 de janeiro;</td>
+                </tr>
+                <tr>
+                    <td class="tg-kw6a">Aquário: de 21 de janeiro a 18 de fevereiro;</td>
+                </tr>
+                <tr>
+                    <td class="tg-kw6a">Peixes: de 19 de fevereiro a 20 de março;</td>
+                </tr>
+            </tbody>
+            </table>
+    </div>
+    <br>
+    <br>
+    <div id="acoes">
+        <center>
+            <font color="#fffff;">
+                <label>Data de Nascimento: </label>
+                <input type="text" id="data" name="data"><br><br>
+                <input type="button" id="botao" value="DESCOBRIR SIGNO" onclick="calculaSigno();"><br>
+            </font>
+        </center>
+    </div>
+    <div>
+        <center>
+            <font color="#fffff;">
+                <p id="gabarito"></p>
+            </font>
+        </center>
+    </div>
+</body>
+<script>
+    function calculaSigno(){
+        let tdata = document.getElementById("data").value;
+        dia = tdata.substr(0,tdata.length-3);
+        mes = tdata.substr(tdata.length-2);
+        saida = "";
+        if((mes<1)||(mes>12)){
+            alert("Mês inválido");
+            saida="";
+        }
+        if((dia<1)||(dia>32)){
+            alert("Dia inválido")
+            saida="";
+        }
+        if((dia>=21&&mes==03)||(dia<=20&&mes==04)){
+            saida = "Signo: Aries";
+        }
+        if((dia>=21&&mes==04)||(dia<=20&&mes==05)){
+            saida = "Signo: Touro";
+        }
+        if((dia>=21&&mes==05)||(dia<=20&&mes==06)){
+            saida = "Signo: Gêmeos";
+        }
+        if((dia>=21&&mes==06)||(dia<=22&&mes==07)){
+            saida = "Signo: Câncer";
+        }
+        if((dia>=23&&mes==07)||(dia<=22&&mes==08)){
+            saida = "Signo: Leão";
+        }
+        if((dia>=23&&mes==08)||(dia<=22&&mes==09)){
+            saida = "Signo: Virgem";
+        }
+        if((dia>=23&&mes==09)||(dia<=22&&mes==10)){
+            saida = "Signo: Libra";
+        }
+        if((dia>=23&&mes==10)||(dia<=21&&mes==11)){
+            saida = "Signo: Escorpião";
+        }
+        if((dia>=22&&mes==11)||(dia<=21&&mes==12)){
+            saida = "Signo: Sagitário";
+        }
+        if((dia>=22&&mes==12)||(dia<=20&&mes==01)){
+            saida = "Signo: Capricórnio";
+        }
+        if((dia>=21&&mes==01)||(dia<=18&&mes==02)){
+            saida = "Signo: Aquario";
+        }
+        if((dia>=19&&mes==02)||(dia<=20&&mes==03)){
+            saida = "Signo: Peixes";
+        }
+        document.getElementById('gabarito').innerHTML = saida
+    }
+    document.querySelector('#data').addEventListener('keydown', function (event) {
+    if (event.keyCode !== 13) return;
+    calculaSigno();
+});
+
+</script>
+</html>

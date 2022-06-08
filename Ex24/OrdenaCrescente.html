@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ordena crescente</title>
+</head>
+<body style="background-color: #1c1c1c ;">
+    <div id="titulo">
+        <center>
+            <font color="#ffffff;">
+                <h1>
+                    <label>
+                        Ordenar números de forma crescente!!
+                    </label>
+                </h1>
+            </font>
+        </center>
+    </div>
+    <div id="explicação">
+        <center>
+            <font color="#fffff;">
+                <label>
+                    Receber 5 valores numéricos inteiros; Ordenar os valores em ordem
+                    crescente; Exibir os valores ordenados..
+                </label><br><br>
+            </font>
+        </center>
+    </div>
+    <div>
+        <center>
+            <font color="#fffff;">
+                <label>Números recebidos: </label>
+                <input type="text" id="n1" name="número1" size="1"><label>,</label>
+                <input type="text" id="n2" name="número2" size="1"><label>,</label>
+                <input type="text" id="n3" name="número3" size="1"><label>,</label>
+                <input type="text" id="n4" name="número4" size="1"><label>,</label>
+                <input type="text" id="n5" name="número5" size="1"><br><br>
+                <input type="button" id="botao" value="CALCULAR" onclick="ordena();"
+            </font>
+        </center>
+    </div>
+    <div>
+        <center>
+            <font>
+                <p id="gabarito"></p>
+            </font>
+        </center>
+    </div>
+</body>
+<script>
+    function ordena(){
+        let tn1 = document.getElementById("n1").value;
+        let tn2 = document.getElementById("n2").value;
+        let tn3 = document.getElementById("n3").value;
+        let tn4 = document.getElementById("n4").value;
+        let tn5 = document.getElementById("n5").value;
+
+        const numeros = [tn1, tn2, tn3, tn4, tn5];
+        const sorted = numeros.sort((a,b) => {
+            return a-b;
+        });
+        saida = "Ordenados: " + numeros ;
+        document.getElementById('gabarito').innerHTML = saida
+        console.log(numeros);
+    }
+    document.querySelector('#n5').addEventListener('keydown', function (event) {
+        if (event.keyCode !== 13) return;
+        ordena();
+    })
+</script>
+</html>

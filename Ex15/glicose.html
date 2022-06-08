@@ -1,0 +1,95 @@
+<html>
+    <body style="background-color: #1c1c1c ;">
+        <center>
+            <p id="cabecalho"> 
+                    <font color="#ffffff;">
+                        <h1>
+                            Nível de glicose
+                        </h1>
+                    </font>
+            </p>
+            </center>
+            <p id="explicacao">
+                <center>
+                    <font color="#fffff;">
+                        Fazer um programa para ler a quantidade de glicose no sangue de uma
+                        pessoa e depois mostrar na tela a classificação desta glicose de acordo
+                        com a tabela de referência abaixo:
+                    </font>
+                </center>
+            </p>
+            <p id="tabela">
+                <style type="text/css">
+                    .tg  {border-collapse:collapse;border-spacing:0;}
+                    .table-responsive{width: 100% !important;}
+                    .table{width: 50% !important;margin:auto;}
+                    .table-status {margin-top: 20px;margin-bottom: 20px !important;}
+                    .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+                      overflow:hidden;padding:10px 5px;word-break:normal;}
+                    .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+                      font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+                    .tg .tg-yc5w{border-color:inherit;color:#ffffff;text-align:center;vertical-align:center}
+                    .tg .tg-eubh{border-color:inherit;color:#ffffff;font-weight:bold;text-align:center;vertical-align:center}
+                    </style>
+                    <table class="tg" align=center>
+                    <thead>
+                      <tr>
+                        <th class="tg-eubh">Classificação</th>
+                        <th class="tg-yc5w"></th>
+                        <th class="tg-eubh">Glicose</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="tg-yc5w">Normal</td>
+                        <td class="tg-yc5w">-&gt;</td>
+                        <td class="tg-yc5w">Até 100 mg/dl</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-yc5w">Elevado</td>
+                        <td class="tg-yc5w">-&gt;</td>
+                        <td class="tg-yc5w">Entre 100 e 140 mg/dl</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-yc5w">Diabetes</td>
+                        <td class="tg-yc5w">-&gt;</td>
+                        <td class="tg-yc5w">Maior que 140 mg/dl</td>
+                      </tr>
+                    </tbody>
+                    </table>
+            </p>
+            <p id="acoes">
+                <center>
+                    <font color="#fffff;">
+                        Digite a medida da glicose: <input type="text" id="GliNivel" name="NivelDeGlicose"><br><br>
+                        <input type="button" value="CALCULAR" onclick="classifica();"><br>
+                    </font>
+                </center>
+            </p>
+            <center>
+                <font color="#fffff;">
+                    <p id="gabarito"></p>
+                </font>
+            </center>
+    </body>
+    <script>
+        function classifica(){
+            var Gli = document.getElementById('GliNivel').value;
+            classificacao = "";
+            if((Gli>=0)&&(Gli<=100)){
+                classificacao = "Classificação: Normal";
+            } else if((100<Gli)&&(Gli<=140)){
+                classificacao = "Classificação: Elevado";
+            } else if(Gli>140){
+                classificacao = "Classificação: Diabetes";
+            } else{
+                alert("Insira um valor válido");
+            }
+            document.getElementById("gabarito").innerHTML = classificacao
+        }
+        document.querySelector('#GliNivel').addEventListener('keydown', function (event) {
+        if (event.keyCode !== 13) return;
+        classifica();
+    })
+    </script>
+</html>

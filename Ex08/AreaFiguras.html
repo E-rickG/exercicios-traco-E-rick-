@@ -1,0 +1,61 @@
+<html>
+    <body style="background-color: #1c1c1c ;">
+        <p id="cabecalho">
+            <center>
+                <font color="#ffffff;">
+                    <h1>
+                        Área das figuras
+                    </h1>
+                </font>
+            </center>
+        </p>
+        <p id="explicacao">
+            <center>
+                <font color="#fffff;">
+                    Fazer um programa para ler três medidas A, B e C. Em seguida, calcular e
+                    mostrar:<br>
+                    a) a área do quadrado que tem lado A<br>
+                    b) a área do triângulo retângulo que base A e altura B<br>
+                    c) a área do trapézio que tem bases A e B, e altura C<br>
+                </font>
+            </center>
+        </p>
+        <p id="acoes">
+            <center>
+                <font color="#fffff;">
+                    Digite a medida A: <input type="text" value="0.0" id="A" name="medidaA"><br><br>
+                    Digite a medida B: <input type="text" value="0.0" id="B" name="medidaB"><br><br>
+                    Digite a medida C: <input type="text" value="0.0" id="C" name="medidaC"><br><br>
+                </font>
+            </center>
+        </p>
+        <p>
+            <center>
+                <font color="#fffff;">
+                    ÁREA DO QUADRADO = <input type="text" value="0.0000" id="AQ" name="AreaQuadrado"><br>
+                    ÁREA DO TRIÂNGULO = <input type="text" value="0.0000" id="AT" name="AreaTriangulo"><br>
+                    ÁREA DO TRAPÉZIO = <input type="text" value="0.0000" id="ATra" name="AreaTrapezio"><br>
+                </font>
+            </center>
+        </p>
+    </body>
+    <script>
+        var tA = document.getElementById('A');
+        var tB = document.getElementById('B');
+        var tC = document.getElementById('C');
+
+        tA.onkeyup = calculaAQ;
+        tB.onkeyup = calculaAT;
+        tC.onkeyup = calculaATra;
+
+        function calculaAQ(){
+            AQ.value=(tA.value*tA.value).toFixed(4);
+        }
+        function calculaAT(){
+            AT.value=((tA.value*tB.value)/2).toFixed(4);
+        }
+        function calculaATra(){
+            ATra.value=(((Number(tA.value)+Number(tB.value))*tC.value)/2).toFixed(4);
+        }
+    </script>
+</html>

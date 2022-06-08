@@ -1,0 +1,53 @@
+<html>
+    <body style="background-color: #1c1c1c ;">
+        <center>
+            <p id="cabecalho"> 
+                    <font color="#ffffff;">
+                        <h1>
+                            Maior Distância!
+                        </h1>
+                    </font>
+            </p>
+        </center>
+        <p id="explicacao">
+            <center>
+                <font color="#fffff;">
+                    No arremesso de dardo, o atleta tem três chances para lançar o dardo à
+                    maior distância que conseguir. Você deve criar um programa para, dadas
+                    as medidas das três tentativas de lançamento, informar qual foi a maior.
+                </font>
+            </center>
+        </p>
+        <p>
+            <center>
+                <font color="#fffff;">
+                    Digite as três distâncias:<br><br>
+                    <input type="number" id="D1" value="0.00" name="Distancia1">
+                    <input type="number" id="D2" value="0.00" name="Distancia2">
+                    <input type="number" id="D3" value="0.00" name="Distancia3"><br><br>
+                    <input type="button" value="CALCULAR" onclick="CalculaDist();">
+                </font>
+            </center>
+        </p>
+        <center>
+            <font color="#fffff;">
+                <p id="gabarito"></p>
+            </font>
+        </center>
+    </body>
+    <script>
+        function CalculaDist(){
+            var tD1 = document.getElementById('D1').value;
+            var tD2 = document.getElementById('D2').value;
+            var tD3 = document.getElementById('D3').value;
+            saida = "";
+            var max = Math.max(tD1,tD2,tD3);
+            saida = "MAIOR DISTÂNCIA = " + max;
+            document.getElementById("gabarito").innerHTML = saida;
+        }
+        document.querySelector('#D3').addEventListener('keydown', function (event) {
+        if (event.keyCode !== 13) return;
+        CalculaDist();
+    })
+    </script>
+</html>
